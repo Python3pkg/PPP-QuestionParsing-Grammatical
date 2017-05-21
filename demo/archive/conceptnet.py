@@ -36,7 +36,7 @@ def associatedWordsRelation(word,relation):
     #r = requests.get(api,params={'end':'/c/en/'+word,'limit':20,'rel':relation}).json()
     #res += r['edges']
     for w in res:
-        print(w['startLemmas'] + ' ' + w['endLemmas'] + ' ' + str(w['score']))
+        print((w['startLemmas'] + ' ' + w['endLemmas'] + ' ' + str(w['score'])))
     return [otherWord(word,w) for w in res] # if w['score']/r['maxScore']>=0.5]
 
 def associatedWords(word,relations):
@@ -51,4 +51,4 @@ def associatedWords(word,relations):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         sys.exit("Syntax: ./%s <word to search>" % sys.argv[0])
-    print(associatedWords(normalize(sys.argv[1]),{'/r/RelatedTo'}))
+    print((associatedWords(normalize(sys.argv[1]),{'/r/RelatedTo'})))

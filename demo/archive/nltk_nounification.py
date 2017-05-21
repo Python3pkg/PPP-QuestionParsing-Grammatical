@@ -5,5 +5,5 @@ wordlist = ["die","born","wrote","directed","play","ran","jump","walk","hide","d
 tic = time.time()
 nounlist = [w for w in wordlist if w in nouns]
 toc = time.time()
-print(toc-tic)
-print("%s/%s" % (str(len(nounlist)),str(len(wordlist))))
+print((toc-tic))
+print(("%s/%s" % (str(len(nounlist)),str(len(wordlist)))))

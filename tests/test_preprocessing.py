@@ -28,7 +28,7 @@ class PreprocessingMergeTests(TestCase):
             handler = QuotationHandler()
             sentence = 'The person who sings {0}Let It Be{1} and {0}Lucy in the Sky with Diamonds{1} also sings {0}Yellow Submarine{1}.'.format(quotes[0], quotes[1])
             real = handler.pull(sentence)
-            for replacement, original in handler.quotations.items():
+            for replacement, original in list(handler.quotations.items()):
                 real = real.replace(replacement, '%s%s%s' % (quotes[0], original, quotes[1]))
             self.assertEqual(real, sentence)
 

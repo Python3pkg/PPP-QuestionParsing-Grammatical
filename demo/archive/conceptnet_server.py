@@ -24,7 +24,7 @@ class clock:
         self.tic = time.time()
     def time_step(self,s):
         toc = time.time()
-        print("%s: %ss" % (s,str(toc-self.tic)))
+        print(("%s: %ss" % (s,str(toc-self.tic))))
         self.tic=toc
 
 CLOCK = None
@@ -142,5 +142,5 @@ if __name__ == "__main__":
         tic = CLOCK.tic
         word=normalized_concept_name(default_language,sys.argv[i]) # Lemmatization+stemming
         CLOCK.time_step("lemmatization")
-        print(associatedWords(word,{'/r/RelatedTo','/r/DerivedFrom','/r/CapableOf','/r/Synonym'}))
-        print("Total: %s\n" % str(CLOCK.tic - tic))
+        print((associatedWords(word,{'/r/RelatedTo','/r/DerivedFrom','/r/CapableOf','/r/Synonym'})))
+        print(("Total: %s\n" % str(CLOCK.tic - tic)))

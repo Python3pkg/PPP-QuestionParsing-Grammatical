@@ -16,6 +16,6 @@ nlp = StanfordNLP()
 
 if __name__ == "__main__":
     while(True):
-        line=input("")
+        line=eval(input(""))
         result = nlp.parse(line)
         print(result)

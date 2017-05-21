@@ -15,14 +15,14 @@ def buildWikidataProperties():
     properties = set()
     maxRange=60
     for i in range(0, maxRange):
-        print("%d/%d"%(i+1, maxRange))
+        print(("%d/%d"%(i+1, maxRange)))
         propertiesIDs = '|'.join(['P%d'%x for x in range(50*i+1, 50*(i+1)+1)])
         request = requests.get('http://www.wikidata.org/w/api.php', params={'action':'wbgetentities', 'sites':'itwiki', 'ids':propertiesIDs, 'format':'json'})
         j = request.json()
         if j['success'] == 0:
             continue
-        for prop in j['entities'].values():
-            if 'missing' in prop.keys():
+        for prop in list(j['entities'].values()):
+            if 'missing' in list(prop.keys()):
                 continue
             try:
                 for alias in prop['aliases'][default_language]:

@@ -43,7 +43,7 @@ class NamedEntityMerging:
                 tagToNodes[child.namedEntityTag+child.dependency].add(child)
             except KeyError:
                 tagToNodes[child.namedEntityTag+child.dependency] = set([child])
-        for sameTag in tagToNodes.values():
+        for sameTag in list(tagToNodes.values()):
             x = sameTag.pop()
             for other in sameTag:
                 x.merge(other, True)

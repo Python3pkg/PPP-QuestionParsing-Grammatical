@@ -23,7 +23,7 @@ class StanfordNLP:
 def get_answer(sentence=""):
     nlp = StanfordNLP()
     if sentence == "":
-        sentence = input("")
+        sentence = eval(input(""))
     handler = ppp_questionparsing_grammatical.QuotationHandler()
     simplifiedSentence = handler.pull(sentence)
     result = nlp.parse(simplifiedSentence)
@@ -36,4 +36,4 @@ def get_answer(sentence=""):
     return t
 
 if __name__ == "__main__":
-    print(json.dumps(get_answer().as_dict(), indent=4))
+    print((json.dumps(get_answer().as_dict(), indent=4)))

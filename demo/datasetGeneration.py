@@ -68,7 +68,7 @@ if __name__ == "__main__":
     print('data = {')
     while True:
         try:
-            s = input("")
+            s = eval(input(""))
         except EOFError:
             break
         try:
@@ -92,6 +92,6 @@ if __name__ == "__main__":
             print('')
         else:
             flag=True
-        print('%s\'%s\':' % (' '*BASE_INDENT*INDENT_NUMBER, s))
-        print('%s,' % result)
+        print(('%s\'%s\':' % (' '*BASE_INDENT*INDENT_NUMBER, s)))
+        print(('%s,' % result))
     print('}')

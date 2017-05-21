@@ -20,7 +20,7 @@ class StanfordNLP:
 
 def get_tree():
     nlp = StanfordNLP()
-    sentence = input("")
+    sentence = eval(input(""))
     handler = ppp_questionparsing_grammatical.QuotationHandler()
     simplifiedSentence = handler.pull(sentence)
     result = nlp.parse(simplifiedSentence)
@@ -32,4 +32,4 @@ def get_tree():
     return tree
 
 if __name__ == "__main__":
-    print(get_tree())
+    print((get_tree()))

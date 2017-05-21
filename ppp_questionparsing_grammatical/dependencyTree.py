@@ -234,7 +234,7 @@ class TreeGenerator:
         """
             Correct the tree returned by the Stanford Parser, according to several heuristics.
         """
-        words = sorted(self.nameToNodes.keys(), key = lambda x: x[1])
+        words = sorted(list(self.nameToNodes.keys()), key = lambda x: x[1])
         self._addNamedEntityTag(tree, words)
 
 

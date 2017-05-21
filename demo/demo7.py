@@ -12,7 +12,7 @@ from ppp_cli.dot import print_responses
 
 def getAnswer(sentence=None):
     if not sentence:
-        sentence = input("")
+        sentence = eval(input(""))
     q = RequestHandler(Request(language="en",id=1,tree=Sentence(sentence)))
     return q.answer()
 

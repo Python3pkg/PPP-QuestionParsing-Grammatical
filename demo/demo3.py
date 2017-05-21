@@ -20,10 +20,10 @@ class StanfordNLP:
 
 def get_tree():
     nlp = StanfordNLP()
-    sentence = input("")
+    sentence = eval(input(""))
     result = nlp.parse(sentence)
     tree = ppp_questionparsing_grammatical.computeTree(result)
     return tree
 
 if __name__ == "__main__":
-    print(get_tree())
+    print((get_tree()))

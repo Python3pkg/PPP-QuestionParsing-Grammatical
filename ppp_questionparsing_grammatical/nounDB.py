@@ -42,7 +42,7 @@ class TextStream:
             Save data into f
         """
         [verbToNounsDirect, verbToNounsInverse] = data
-        l = sorted([(x, 0) for x in verbToNounsDirect.keys()] + [(x, 1) for x in verbToNounsInverse.keys()])
+        l = sorted([(x, 0) for x in list(verbToNounsDirect.keys())] + [(x, 1) for x in list(verbToNounsInverse.keys())])
         for couple in l:
             if couple[1] == 0:
                 f.write('%s%s%s\n' % (couple[0], self.directSymbol, self.separator.join(verbToNounsDirect[couple[0]])))
@@ -67,7 +67,7 @@ class Nounificator:
             return ('%s:\t<-%s' % (x[0], self.verbToNounsInverse[x[0]]))
 
     def __str__(self):
-        l = sorted([(x, 0) for x in self.verbToNounsDirect.keys()] + [(x, 1) for x in self.verbToNounsInverse.keys()])
+        l = sorted([(x, 0) for x in list(self.verbToNounsDirect.keys())] + [(x, 1) for x in list(self.verbToNounsInverse.keys())])
         return '\n'.join([self.select(x) for x in l])
 
     def __eq__(self, other):
@@ -196,7 +196,7 @@ class Nounificator:
         """
             Merge with the given nounificator.
         """
-        for key, value in other.verbToNounsDirect.items():
+        for key, value in list(other.verbToNounsDirect.items()):
             self.addListDirect(key, value)
-        for key, value in other.verbToNounsInverse.items():
+        for key, value in list(other.verbToNounsInverse.items()):
             self.addListInverse(key, value)

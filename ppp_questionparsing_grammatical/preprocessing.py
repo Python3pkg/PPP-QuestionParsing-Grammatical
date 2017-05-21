@@ -70,5 +70,5 @@ class QuotationHandler:
                 continue
         if replaced:
             tree.namedEntityTag = 'QUOTATION'
-        for (replacement, original) in self.quotations.items():
+        for (replacement, original) in list(self.quotations.items()):
             tree.text = tree.text.replace(replacement, "``%s''" % original)

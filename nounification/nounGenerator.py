@@ -37,7 +37,7 @@ class Clock:
     def time_step(self, s, done, total):
         toc = time.time()
         remaining_time = (toc-self.tic)*(total-done)/done
-        print("%s  \t-- %s (%d/%d)" % (self.format_time(round(remaining_time)), s, done, total))
+        print(("%s  \t-- %s (%d/%d)" % (self.format_time(round(remaining_time)), s, done, total)))
 
 CLOCK = None
 
@@ -154,7 +154,7 @@ def test(verb):
 if __name__ == "__main__":
     database = nounDB.Nounificator()
     CLOCK = Clock()
-    print('number of verbs: ' + str(len(verbsSet)))
+    print(('number of verbs: ' + str(len(verbsSet))))
     i=0
     for verb in verbsSet:
         for noun in associatedWords(verb, {'/r/RelatedTo', '/r/DerivedFrom', '/r/CapableOf', '/r/Synonym'}):

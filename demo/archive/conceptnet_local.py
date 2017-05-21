@@ -32,7 +32,7 @@ class clock:
         self.tic = time.time()
     def time_step(self,s):
         toc = time.time()
-        print("%s: %ss" % (s,str(toc-self.tic)))
+        print(("%s: %ss" % (s,str(toc-self.tic))))
         self.tic=toc
 
 CLOCK = None
@@ -100,7 +100,7 @@ class candidate:
             else:
                 self.tag = -1
         toc = time.time()
-        print("\tposTag: %ss" % str(toc-tic))
+        print(("\tposTag: %ss" % str(toc-tic)))
 
     def computeScore(self):
         """
@@ -163,4 +163,4 @@ if __name__ == "__main__":
     CLOCK = clock()
     word=normalized_concept_name(default_language,sys.argv[1]) # Lemmatization+stemming
     CLOCK.time_step("lemmatization")
-    print(associatedWords(word,{'/r/RelatedTo','/r/DerivedFrom','/r/CapableOf','/r/Synonym'}))
+    print((associatedWords(word,{'/r/RelatedTo','/r/DerivedFrom','/r/CapableOf','/r/Synonym'})))
